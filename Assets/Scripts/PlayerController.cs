@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    // Vehicle speed modifier
-    public float speed = 10.0f;
-    public float boostSpeed = 10.0f;
-    public float turnSpeed = 10.0f;
-    public float horizontalInput = 0.0f;
-    public float verticalInput = 0.0f;
+    // Initalize variables
+    private float speed = 20.0f;
+    private float boostSpeed = 40.0f;
+    private float turnSpeed = 10.0f;
+    private float horizontalInput = 0.0f;
+    private float verticalInput = 0.0f;
 
     // Start is called before the first frame update
     void Start()
@@ -31,8 +31,8 @@ public class PlayerController : MonoBehaviour
 
     void MoveForward()
     {
-        // Handle player input and forward movement
-        if(Input.GetButton("Boost"))
+        // Checks for boost button held down, then handle player input and forward movement
+        if (Input.GetButton("Boost"))
         {
             transform.Translate(Vector3.forward * Time.deltaTime * boostSpeed * verticalInput);
         } else
